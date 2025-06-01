@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-auth-layout',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
+  template: ` <router-outlet></router-outlet> `,
 })
-export class App {
-  protected title = 'supabase_prueba';
+export class AuthLayout {
+  constructor() {}
 }
