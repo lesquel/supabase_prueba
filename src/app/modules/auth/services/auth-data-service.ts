@@ -7,7 +7,7 @@ import { supabase } from '@services/supabase';
 export class AuthDataService {
   private supabase = supabase;
 
-  login(email: string, password: string) {
+  login({ email, password }: { email: string; password: string }) {
     return this.supabase.auth.signInWithPassword({
       email,
       password

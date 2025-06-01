@@ -4,7 +4,9 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-auth-layout',
   imports: [RouterOutlet],
-  template: ` <router-outlet></router-outlet> `,
+  template: ` <main class="flex flex-col items-center justify-center min-h-screen">
+    <router-outlet></router-outlet>
+  </main> `,
 })
 export class AuthLayout {
   constructor() {}

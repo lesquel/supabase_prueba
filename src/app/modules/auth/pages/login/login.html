@@ -1,1 +1,11 @@
-<p>login works!</p>
+<form (submit)="onSubmit($event)" [formGroup]="loginForm" class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+    <legend class="fieldset-legend">Login</legend>
+
+    <label class="label">Email</label>
+    <input type="text" class="input" placeholder="name@example.com" formControlName="email" />
+
+    <label class="label">Password</label>
+    <input type="text" class="input" placeholder="My awesome page" formControlName="password" />
+
+    <button [disabled]="loginForm.invalid || isLogin" class="btn btn-primary">Login</button>
+</form>

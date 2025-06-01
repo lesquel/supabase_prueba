@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { User } from '@supabase/supabase-js';
 import { CookieOptions, CookieService } from 'ngx-cookie-service';
+import { SessionUser } from '../models/session-user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,9 @@ export class AuthSessionService {
 
   private cookieService = inject(CookieService);
 
-  saveLogin(user: User) {
+  saveLogin(user: SessionUser) {
+    console.log('saveLogin');
+    console.log(user);
     this.cookieService.set(this.cookieName, JSON.stringify(user), this.cookieOptions);
   }
 

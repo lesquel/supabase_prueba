@@ -1,18 +1,25 @@
 import { Routes } from '@angular/router';
 import { authConfigRoutes } from './config';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
+import { AuthLayout } from './auth-layout';
+import { isLoggedGuard } from './guard/is-logged-guard';
 
-export const routes: Routes = [
+export const authRoutes: Routes = [
   {
     path: authConfigRoutes.path,
+    component: AuthLayout,
+    canActivate: [isLoggedGuard],
     children: [
       {
         path: authConfigRoutes.children.login.path,
-        loadChildren: () => import('./pages/login/login').then((m) => m.Login),
+        component: Login,
+        // loadChildren: () => import('./pages/login/login').then((m) => m.Login),
       },
       {
         path: authConfigRoutes.children.register.path,
-        loadChildren: () =>
-          import('./pages/register/register').then((m) => m.Register),
+        component: Register,
+        // loadChildren: () => import('./pages/register/register').then((m) => m.Register),
       },
     ],
   },
