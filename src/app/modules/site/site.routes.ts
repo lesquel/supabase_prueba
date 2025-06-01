@@ -1,12 +1,12 @@
 import { Routes } from "@angular/router";
 import { Home } from "./pages/home/home";
-import { isNotLoggedGuard } from "../auth/guard/is-not-logged-guard";
+import { isLoggedGuard } from "../auth/guard/is-logged-guard";
 
 export const siteRoutes :Routes = [
   {
     path: '',
     component: Home,
-    canActivate: [isNotLoggedGuard]
+    canActivate: [isLoggedGuard]
     // loadChildren: () => import('./pages/home/home').then((m) => m.Home),
   },
 ];

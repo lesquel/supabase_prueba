@@ -9,3 +9,6 @@
 
     <button [disabled]="loginForm.invalid || isLogin" class="btn btn-primary">Login</button>
 </form>
+
+<button class="btn btn-primary">Forgot password</button>
+<p>Not registered? <a [routerLink]="[authConfigRoutes.children.register.url]">Register</a></p>

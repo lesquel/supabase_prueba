@@ -3,12 +3,13 @@ import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthDataService } from '../../services/auth-data-service';
 import { AuthSessionService } from '../../services/auth-session-service';
 import { sessionUserAdapter } from '../../adaptes/session-user-adapter';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { siteConfigRoutes } from '@app/modules/site/config/site-config-routes';
+import { authConfigRoutes } from '../../config';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login.html',
 })
 export class Login {
@@ -16,6 +17,7 @@ export class Login {
   private authDataService = inject(AuthDataService);
   private authSessionService = inject(AuthSessionService);
   private router = inject(Router);
+  protected authConfigRoutes = authConfigRoutes;
   isLogin = false;
 
   loginForm = this.fb.group({
